@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100vw;
+    height: 100vh;
+}
+
+.game__card {
+    justify-self: center;
+    align-self: center;
+}
+
+.game__card_up,
+.game__card_down {
+    border-radius: 5%;
+    width: 11vw;
+}
+
+.game__card_up {
+    position: absolute;
+    z-index: -1;
+}
