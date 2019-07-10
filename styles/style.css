@@ -9,20 +9,44 @@
     grid-template-columns: repeat(4,1fr);
     width: 100vw;
     height: 100vh;
+    perspective: 100rem;
 }
 
 .game__card {
     justify-self: center;
     align-self: center;
+    transform-style: preserve-3d;
+    transition: transform .3s;
+}
+
+.game__card:hover {
+    cursor: pointer;
+}
+
+.game__card:active {
+    transform: scale(1.05);
+    transition: transform .2s;
+}
+
+.game__card.turned {
+    transform: rotateY(180deg);
 }
 
 .game__card_up,
 .game__card_down {
     border-radius: 5%;
-    width: 11vw;
+    width: 10vw;
+    backface-visibility: hidden;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+    transition: box-shadow .2s;
 }
 
 .game__card_up {
     position: absolute;
     z-index: -1;
+    transform: rotateY(180deg);
+}
+
+.game__card_down:active {
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
