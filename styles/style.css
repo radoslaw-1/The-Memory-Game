@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .game {
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -49,4 +53,38 @@
 
 .game__card_down:active {
     box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+}
+
+.photographer {
+    display: none;
+    position: absolute;
+    top: 85%;
+    padding: 1px;
+    margin-left: .5rem;
+    color: #fff;
+    background: rgba(0, 0, 0, .5);
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+@media (min-width: 768px) {
+    .photographer {
+        display: block;
+        top: 82.5%;
+        font-size: .45rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .photographer {
+        display: block;
+        font-size: .6rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .photographer {
+        display: block;
+        font-size: .75rem;
+    }
 }
