@@ -11,6 +11,61 @@ let originalOrder = new Object();
 let loopNumber = 0;
 let difficulty;
 
+const deckInfo = {
+    dogs: [
+        {   "number" : "game__card_1",
+            "src" : "img/dog-1.jpg",
+            "photographer" : "@reckziegel"
+        },
+        {   "number" : "game__card_2",
+            "src" : "img/dog-2.jpg",
+            "photographer" : "@ciabattespugnose"
+        },
+        {   "number" : "game__card_3",
+            "src" : "img/dog-3.jpg",
+            "photographer" : "@charlesdeluvio"
+        },
+        {   "number" : "game__card_4",
+            "src" : "img/dog-4.jpg",
+            "photographer" : "@erdaest"
+        },
+        {   "number" : "game__card_5",
+            "src" : "img/dog-5.jpg",
+            "photographer" : "@kimtheris"
+        },
+        {   "number" : "game__card_6",
+            "src" : "img/dog-6.jpg",
+            "photographer" : "@ipet_photo"
+        }
+    ],
+    cats: [
+        {   "number" : "game__card_1",
+            "src" : "img/cat-1.jpg",
+            "photographer" : "@miklevasilyev"
+        },
+        {   "number" : "game__card_2",
+            "src" : "img/cat-2.jpg",
+            "photographer" : "@ivanjevtic"
+        },
+        {   "number" : "game__card_3",
+            "src" : "img/cat-3.jpg",
+            "photographer" : "@madhatterzone"
+        },
+        {   "number" : "game__card_4",
+            "src" : "img/cat-4.jpg",
+            "photographer" : "@nrly"
+        },
+        {   "number" : "game__card_5",
+            "src" : "img/cat-5.jpg",
+            "photographer" : "@thesollers"
+        },
+        {   "number" : "game__card_6",
+            "src" : "img/cat-6.jpg",
+            "photographer" : "@zoegayah"
+        }
+    ]
+};
+
 function randomizeOrder(){
     cards.forEach(function(){
         loopNumber += 1;
@@ -68,47 +123,21 @@ function newGame(){
     };
     if(buttonDogs.classList.contains("button_selected")){
         cards.forEach(card => {
-            if(card.children[0].classList.contains("game__card_1")){
-                card.firstElementChild.src = "img/dog-1.jpg";
-                card.children[2].innerHTML = "@reckziegel";
-            } else if (card.children[0].classList.contains("game__card_2")){
-                card.firstElementChild.src = "img/dog-2.jpg";
-                card.children[2].innerHTML = "@ciabattespugnose";
-            } else if (card.children[0].classList.contains("game__card_3")){
-                card.firstElementChild.src = "img/dog-3.jpg";
-                card.children[2].innerHTML = "@charlesdeluvio";
-            } else if (card.children[0].classList.contains("game__card_4")){
-                card.firstElementChild.src = "img/dog-4.jpg";
-                card.children[2].innerHTML = "@erdaest";
-            } else if (card.children[0].classList.contains("game__card_5")){
-                card.firstElementChild.src = "img/dog-5.jpg";
-                card.children[2].innerHTML = "@kimtheris";
-            } else {
-                card.firstElementChild.src = "img/dog-6.jpg";
-                card.children[2].innerHTML = "@ipet_photo";
-            };
+            Object.keys(deckInfo.dogs).forEach(key => {
+                if(card.children[0].classList[1] === deckInfo.dogs[key].number){
+                    card.firstElementChild.src = deckInfo.dogs[key].src;
+                    card.children[2].innerHTML = deckInfo.dogs[key].photographer;
+                };
+            });
         });
     } else {
         cards.forEach(card => {
-            if(card.children[0].classList.contains("game__card_1")){
-                card.firstElementChild.src = "img/cat-1.jpg";
-                card.children[2].innerHTML = "@miklevasilyev";
-            } else if (card.children[0].classList.contains("game__card_2")){
-                card.firstElementChild.src = "img/cat-2.jpg";
-                card.children[2].innerHTML = "@ivanjevtic";
-            } else if (card.children[0].classList.contains("game__card_3")){
-                card.firstElementChild.src = "img/cat-3.jpg";
-                card.children[2].innerHTML = "@madhatterzone";
-            } else if (card.children[0].classList.contains("game__card_4")){
-                card.firstElementChild.src = "img/cat-4.jpg";
-                card.children[2].innerHTML = "@nrly";
-            } else if (card.children[0].classList.contains("game__card_5")){
-                card.firstElementChild.src = "img/cat-5.jpg";
-                card.children[2].innerHTML = "@thesollers";
-            } else {
-                card.firstElementChild.src = "img/cat-6.jpg";
-                card.children[2].innerHTML = "@zoegayah";
-            };
+            Object.keys(deckInfo.cats).forEach(key => {
+                if(card.children[0].classList[1] === deckInfo.cats[key].number){
+                    card.firstElementChild.src = deckInfo.cats[key].src;
+                    card.children[2].innerHTML = deckInfo.cats[key].photographer;
+                };   
+            });
         });
     };
     menu.style.opacity = 0;

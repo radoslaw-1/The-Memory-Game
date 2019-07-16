@@ -118,7 +118,6 @@ body {
 .photographer {
     display: none;
     position: absolute;
-    top: 85%;
     padding: 1px;
     margin-left: .5rem;
     color: #fff;
@@ -137,14 +136,13 @@ body {
 
 @media (min-width: 992px) {
     .photographer {
-        display: block;
+        top: 85%;
         font-size: .6rem;
     }
 }
 
 @media (min-width: 1200px) {
     .photographer {
-        display: block;
         font-size: .75rem;
     }
 }
