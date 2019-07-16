@@ -1,5 +1,6 @@
 const cards = document.querySelectorAll(".game__card");
 const menu = document.querySelector(".menu");
+const roundTime = document.querySelector(".menu__time");
 const buttons = document.querySelectorAll(".button");
 const start = document.querySelector(".menu__start");
 const game = document.querySelector(".game");
@@ -10,6 +11,8 @@ let cardNumbers = new Array();
 let originalOrder = new Object();
 let loopNumber = 0;
 let difficulty;
+let startTime;
+let endTime;
 
 const deckInfo = {
     dogs: [
@@ -143,6 +146,8 @@ function newGame(){
     menu.style.opacity = 0;
     setTimeout(function(){
         menu.style.display = "none";
+        roundTime.innerHTML = "";
+        startTime = new Date();
     }, 500);
 };
 
@@ -170,17 +175,22 @@ function reveal(){
 
 function gameWon(){
     if(difficulty === "hard" && game.children.length === document.querySelectorAll(".turned").length){
+        endTime = new Date();
         showMenu();
     } else if (difficulty === "easy" && game.children.length/2 === document.querySelectorAll(".turned").length) {
+        endTime = new Date();
         showMenu();
     };
 };
 
 function showMenu(){
+    let time = (endTime - startTime)/1000;
     menu.style.display = "grid";
     start.removeEventListener("click", newGame);
     setTimeout(function(){
         menu.style.opacity = 1;
+        roundTime.style.display = "block";
+        roundTime.innerHTML = "Your time: " + time + " seconds";
     }, 500);
     setTimeout(function(){
         cards.forEach(card => {

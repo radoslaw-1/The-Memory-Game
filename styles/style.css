@@ -28,6 +28,11 @@ body {
     transition: opacity .5s;
 }
 
+.menu__time {
+    display: none;
+    text-transform: uppercase;
+}
+
 .menu__difficulty,
 .menu__deck {
     text-transform: uppercase;
